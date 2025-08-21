@@ -1,4 +1,4 @@
-class Pro_9{
+class Pro_09{
     public static void main(String[] args) {
         int m1 = 92;
         int m2 = 85;

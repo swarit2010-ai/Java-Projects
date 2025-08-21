@@ -1,4 +1,4 @@
-class Pro_8{
+class Pro_08{
     public static void main(String[] args) {
         int am = 1000;
         float d = am/90f; 

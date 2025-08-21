@@ -1,4 +1,4 @@
-class Pro_5{
+class Pro_05{
     public static void main(String[] args) {
         int p = 10000;
         int r = 12;

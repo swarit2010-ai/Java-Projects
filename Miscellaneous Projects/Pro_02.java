@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Pro_2 {
+public class Pro_02 {
     static Scanner sc = new Scanner(System.in);
     static int digits;
     static double otp;

@@ -1,3 +1,3 @@
-public class Pro_5 {
+public class Pro_05 {
     
 }

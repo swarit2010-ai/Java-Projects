@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Pro_3 {
+public class Pro_03{
     static Scanner sc = new Scanner(System.in);
     static int number,number3;
     static String word;

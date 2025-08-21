@@ -1,12 +1,12 @@
 import java.util.Scanner;
-public class Pro_4 {
+public class Pro_04 {
     static String[] name_below20_2digit = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"},name_tens_place = {"twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"},name_above_99 = {"hundred","thousand","lakh","crore"};
     static int amount,digits,p,last_two_digits,divisible_value;
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Enter the amount in indian rupees :");
         amount = input();
-        digits = Pro_3.digits(amount);
+        digits = Pro_03.digits(amount);
         print();
     }
     static int input(){
@@ -48,9 +48,5 @@ public class Pro_4 {
                 default -> 3;  
             };
         }
-    }
-    static int last_two_digits(last_two_digits){
-        divisible_value = Pro_3.divisible_value(amount);
-        
     }
 }

@@ -5,10 +5,15 @@ public class Pro_03{
     static String word;
     static String[] words = {"one","two","three","four","five","six","seven","eight","nine","zero"};
     public static void main(String[] args) {
-        System.out.println("Enter number :");
+        System.out.println("Enter a positive number or zero :");
         input();
-        number3 = number;
-        print();
+        if(number != 0){
+            number3 = number;
+            print();
+        }
+        else{
+            System.out.println("zero");
+        }
     }
     static void input(){
         number = sc.nextInt();

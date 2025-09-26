@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Pro_9 {
+public class Pro_09 {
     public static void main(String[] args) {
         System.out.println("Enter a number:");
         try (Scanner sc = new Scanner(System.in)) {

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Pro_8 {
+public class Pro_08 {
     public static void main(String[] args) {
         System.out.println("Enter a year:");
         try (Scanner sc = new Scanner(System.in)) {

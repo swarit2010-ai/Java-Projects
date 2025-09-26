@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Pro_7 {
+public class Pro_07 {
     public static void main(String[] args) {
         System.out.println("Enter a side:");
         try (Scanner sc = new Scanner(System.in)) {

@@ -18,10 +18,10 @@ public class Pro_41 {
             System.out.println("The square of first number is " + sq_1);
             System.out.println("The square of second number is " + sq_2);
             System.out.println("The square of third number is " + sq_3);
-            System.out.println("The cube of first number is " + cb_1);
+            System.out.println("The cube of first number is " + cb_1);           
             System.out.println("The cube of second number is " + cb_2);
             System.out.println("The cube of third number is " + cb_3);
-            System.out.printf("The average of the three numbers is %.2f" , avg);
+            System.out.printf("The average of the three numbers is %.2f" , avg); 
         }
     }
 }

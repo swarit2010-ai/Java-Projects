@@ -1,31 +1,33 @@
 import java.util.Scanner;
-public class Pro_11{
+public class Pro_13{
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             System.out.println("Enter a number :");
             int n = sc.nextInt();
+            int c = 0,sum_1 = 0,sum_2 = 0,d;
+            int no_d = 0;
             int cp = n;
-            int d;
-            int p,sum = 0;
-            int no_of_d = 0;
             while(n != 0){
-                no_of_d++;
+                no_d ++;
                 n /= 10;
             }
             n = cp;
-            int pos = no_of_d;
             while(n != 0){
+                c++;
                 d = n % 10;
-                p = (int)Math.pow(d,pos);
-                sum += p;
+                if(c == 1 || c == no_d){
+                    sum_1 += d;
+                }
+                else{
+                    sum_2 += d;
+                }
                 n /= 10;
-                pos--;
             }
-            if(sum == cp){
-                System.out.println("The number is a disarium number");
+            if(sum_1 == sum_2){
+                System.out.println("The number is a xylem number");
             }
             else{
-                System.out.println("The number is not a disarium number");
+                System.out.println("The number is not a xylem number");
             }
         }
     }

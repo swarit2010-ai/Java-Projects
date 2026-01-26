@@ -1,4 +1,4 @@
-public class Pro_7 {
+public class Pro_07 {
     public static void main(String[] args) {
         int  a = 1;
         for(int n = 1;n <= 8;n++){

@@ -1,7 +1,5 @@
-import java.util.Scanner;
 public class Pro_23 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int total_dist = 5350;
         int bus_dis = total_dist-1070;
         int km = bus_dis/1000;

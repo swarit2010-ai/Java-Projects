@@ -1,6 +1,4 @@
-
 import java.util.Scanner;
-
 public class Pro_24 {
 
     public static void main(String[] args) {

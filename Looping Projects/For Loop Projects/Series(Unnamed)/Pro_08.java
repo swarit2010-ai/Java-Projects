@@ -6,7 +6,7 @@ public class Pro_08 {
         for(int n = 1;n <= 25;n++){
             p += c;
             c += 2;
-            System.out.println("");
+            System.out.println(p);
         }
     }
 }

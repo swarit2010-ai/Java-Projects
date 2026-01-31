@@ -8,6 +8,7 @@ public class Pro_01 {
         int t1 = 0;
         int t2 = 1;
         int sum;
+        System.out.println(0 + "\n" + 1);
         for(int m = 1;m <= n - 2;m++){
             sum = t1 + t2;
             System.out.println(sum);

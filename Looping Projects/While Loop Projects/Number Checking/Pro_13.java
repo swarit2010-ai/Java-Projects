@@ -23,7 +23,7 @@ public class Pro_13{
                 }
                 n /= 10;
             }
-            if(sum_1 == sum_2){
+            if(sum_1 != sum_2){
                 System.out.println("The number is a xylem number");
             }
             else{

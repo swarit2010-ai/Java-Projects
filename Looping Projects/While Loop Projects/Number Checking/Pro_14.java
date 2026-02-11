@@ -23,7 +23,7 @@ public class Pro_14{
                 }
                 n /= 10;
             }
-            if(sum_1 != sum_2){
+            if(sum_1 == sum_2){
                 System.out.println("The number is a phloem number");
             }
             else{

@@ -5,7 +5,15 @@ public class Pro_01 {
         try(Scanner sc = new Scanner(System.in)){
             System.out.println("Enter the number :");
             int n = sc.nextInt();
-            
+            int fact = 0;
+            for(int i = 1;i <= n;i++){
+                if(n % i == 0)
+                    fact++;
+            }
+            if(fact == 2)
+                System.out.println("It is a prime number");
+            else
+                System.out.println("It is not a prime number");
         }
     }
 }

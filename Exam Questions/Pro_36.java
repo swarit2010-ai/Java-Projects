@@ -29,11 +29,23 @@
 // //         }
 // //     }
 // // }
-public class Pro_36 {
+// public class Pro_36 {
 
-    public static void main(String[] args) {
-        int x = 4;
-        x = x++ * ++x % 5 + x;
-        System.out.println(x);
-    }
-}
+//     public static void main(String[] args) {
+//         int x = 4;
+//         x = x++ * ++x % 5 + x;
+//         System.out.println(x + "\t" + x);
+//     }
+// }
+// public class Pro_36 {
+
+//     public static void main(String[] args) {
+//         boolean simple;
+//         simple = false;
+//         System.out.println(simple);
+//         abc();
+//     }
+//     static void abc(){
+//         System.out.println(false);
+//     }
+// }

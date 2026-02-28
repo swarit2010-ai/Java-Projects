@@ -35,7 +35,6 @@ public class Pro_30 {
                     break;
                 }
             }
-                
         }
         System.out.println("The highest common factor is " + hcf);
         System.out.println("The least common multiple is " + lcm);

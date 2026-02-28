@@ -1,6 +1,4 @@
-public class Pro_09 {
-    public static void main(String[] args) {
-        int time = 6;
+
         int rounds;
         int time_2;
         for(int i = 1;i <= 7;i++){
@@ -17,6 +15,3 @@ public class Pro_09 {
             }
             System.out.println();
             time -= 2;
-        }
-    }
-}

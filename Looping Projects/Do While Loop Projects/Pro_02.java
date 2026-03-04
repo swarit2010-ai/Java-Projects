@@ -1,3 +1,4 @@
+//WAP to ask the user to enter a password and keep asking until the correct password is entered. 
 import java.util.Scanner;
 public class Pro_02 {
 

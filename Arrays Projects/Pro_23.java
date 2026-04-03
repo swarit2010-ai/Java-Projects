@@ -5,7 +5,7 @@
 public class Pro_23{
     public static void main(String[] args) {
         int[] arr = {5,1,3,4,2,4};
-        int dup = 0;
+        int dup;
         // brute force
         // for(int i = 0;i < arr.length;i++){
         //     for(int j = i+1;j < arr.length;j++){

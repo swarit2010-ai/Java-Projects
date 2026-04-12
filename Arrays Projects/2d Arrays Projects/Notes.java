@@ -1,4 +1,3 @@
-import java.util.Scanner;
 /*
 A 2d array is a type of multidimensional array where we can store elements in the 
 2 dimension
@@ -7,7 +6,7 @@ rows and columns start from 0
 */
 public class Notes{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         // Initialization
         // int[][] arr = new int[3][3];
         // int[][] arr = {{1,2,3},{4,5,6},{7,8,9}};

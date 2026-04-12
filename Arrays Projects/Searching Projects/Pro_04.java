@@ -36,13 +36,11 @@ public class Pro_04{
         
     }
     public int peakIndexInMountainArray(int[] arr) {
-        int high = arr.length-1;
+        int high = arr.length-2;
         int mid;
-        int low = 0;
+        int low = 1;
         while(low <= high){
             mid = (low+high)/2;
-            if(mid == 0) mid++;
-            if(mid == arr.length-1) mid--;
             if(arr[mid] > arr[mid-1] && arr[mid] > arr[mid+1]) return mid;
             else if(arr[mid] < arr[mid+1]) low = mid+1;
             else high = mid-1;

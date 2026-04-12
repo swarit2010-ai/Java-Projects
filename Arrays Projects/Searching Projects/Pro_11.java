@@ -1,0 +1,56 @@
+/* Given a sorted and rotated array A of N distinct elements which are rotated at some point, and given an element K. The task is to find the index of the given element K in array A.
+
+Example 1:
+
+Input:
+N = 9
+A[] = {5,6,7,8,9,10,1,2,3}
+K = 10
+Output: 5
+Explanation: 10 is found at index 5.
+Example 1:
+
+Input:
+N = 3
+A[] = {3,1,2}
+K = 1
+Output: 1
+User Task:
+Complete Search() function and return the index of the element K if found in the array. If the element is not present, then return -1.
+
+Expected Time Complexity: O(log N).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 ≤ N ≤ 107
+0 ≤ Ai ≤ 108
+1 ≤ K ≤ 108*/
+public class Pro_11{
+    public static void main(String[] args) {
+    }
+    static int Search(int arr[], int k) {
+        int n = arr.length;
+        int low = 0,mid = 0,high = n-1;
+        while(low <= high){
+            mid = (high+low)/2;
+            if(arr[mid] == k) return mid;
+            else {
+                if(arr[mid] > arr[low]){
+                    if(k > arr[mid]) low = mid+1;
+                    else {
+                        if(k < arr[low]) low = mid+1;
+                        else high = mid-1;
+                    }
+                }
+                else {
+                    if(k > arr[mid]){
+                        if(k > arr[high]) high = mid-1;
+                        else low = mid+1;
+                    }
+                    else high = mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+}

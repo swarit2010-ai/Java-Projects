@@ -29,6 +29,19 @@ public class Pro_24{
                 j++;
             }
         }
+        // ArrayList method
+        // ArrayList<Integer> ans = new ArrayList<>();
+        // int c = 0;
+        // for(int i = 0;i < arr.length;i++){
+        //     if(arr[i] == 0) c++;
+        //     else ans.add(arr[i]);
+        // }
+        // for(int j = 1;j <= c;j++){
+        //     ans.add(0);
+        // }
+        // for(int k = 0;k < arr.length;k++){
+        //     arr[k] = ans.get(k);
+        // }
     }
     public static void swap(int[] arr,int i,int j){
         arr[i] += arr[j];

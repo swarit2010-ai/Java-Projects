@@ -26,9 +26,25 @@ public class Pro_13{
     public static void main(String[] args) {
     }
     public String reverseWords(String s) {
-        // Code here
-        // using sliding window
-        
-        return "";
+        StringBuilder ans = new StringBuilder();
+        int i;
+        int j;
+        for(int k = 0;k < s.length();){
+            if(s.charAt(k) != ' '){
+                i = k;
+                while(k < s.length() && s.charAt(k) != ' '){
+                    k++;
+                }
+                j = k;
+                String str = s.substring(i,j);
+                StringBuilder sub = new StringBuilder(str);
+                sub.reverse();
+                ans.append(sub);
+                ans.append(' ');
+            }
+            k++;
+        }
+        ans.deleteCharAt(ans.length()-1);
+        return ans.toString();
     }
 }

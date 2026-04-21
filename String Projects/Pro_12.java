@@ -17,6 +17,24 @@ public class Pro_12{
     public static void main(String[] args) {
     }
     public char nonRepeatingChar(String s) {
-        return 'c';
+        if(s.length() == 1) return s.charAt(0);
+        boolean check = true;
+        for(int i = 0;i < s.length()-1;i++){
+            for(int j = i+1;j < s.length();j++){
+                if(s.charAt(i) == s.charAt(j)){
+                    check = false;
+                    break;
+                }
+            }
+            for(int j = i-1;j >= 0;j--){
+                if(s.charAt(i) == s.charAt(j)){
+                    check = false;
+                    break;
+                }
+            }
+            if(check) return s.charAt(i);
+            check = true;
+        }
+        return '$';
     }
 }

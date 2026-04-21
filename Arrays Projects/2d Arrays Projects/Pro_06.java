@@ -45,7 +45,17 @@ Expected Auxiliary Space: O(1) */
 public class Pro_06{
     public static void main(String[] args) {
     }
-    static void interchangeRows(int matrix[][]) {
-        
+    static void interchangeRows(int mat[][]) {
+        int i = 0;
+        int j = mat.length-1;
+        while(i < j){
+            for(int k = 0;k < mat[0].length;k++){
+                int temp = mat[i][k];
+                mat[i][k] = mat[j][k];
+                mat[j][k] = temp;
+            }
+            i++;
+            j--;
+        }
     }
 }

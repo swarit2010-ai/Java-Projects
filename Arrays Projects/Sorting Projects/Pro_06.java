@@ -1,4 +1,3 @@
-import java.util.Arrays;
 /*Given an integer array arr[] and an integer k, your task is to find and return the kth smallest element in the given array.
 
 Note: The kth smallest element is determined based on the sorted order of the array.
@@ -20,7 +19,18 @@ public class Pro_06{
     }
     public int kthSmallest(int[] arr, int k) {
         // Code here
-        Arrays.sort(arr);
+        for(int i = 0;i < k;i++){
+            int pos = -1,min = Integer.MAX_VALUE;
+            for(int j = i;j < arr.length;j++){
+                if(arr[j] < min) {
+                    min = arr[j];
+                    pos = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[pos];
+            arr[pos] = temp;
+        }
         return arr[k-1];
     }
 }

@@ -27,9 +27,30 @@ S contains only lowercase and uppercase characters.
 public class Pro_14{
     public static void main(String[] args) {
     }
-    String transform(String S) {
+    String transform(String s) {
         // code here
-        // using sliding window
-        return "";
+        StringBuilder ans = new StringBuilder();
+        char[] arr = s.toCharArray();
+        for(int k = 0;k < arr.length;k++) {
+            char ch = arr[k];
+            char ch2 = Character.toLowerCase(ch);
+            arr[k] = ch2;
+        }
+        // Arrays.sort(arr);
+        int c;
+        int i = 0;
+        int j = 0;
+        while(j < arr.length){
+            if(arr[i] != arr[j]) {
+                ans.append(j-i);
+                ans.append(arr[i]);
+                
+                i = j;
+            }
+            else j++;
+        }
+        ans.append(j-i);
+        ans.append(arr[i]);
+        return ans.toString();
     }
 }

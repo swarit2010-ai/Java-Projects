@@ -25,4 +25,4 @@ public class Pro_05{
         rev = rev*10+n%10;
         return reverse(n/10,rev);
     }
-}
+} 

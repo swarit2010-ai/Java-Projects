@@ -10,12 +10,7 @@ The profile is updated time-to-time.
   These are the programs which a learner like me can practice time to time 
 </body>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-# Flowchart for studying using my repo from basics :
+<h>Flowchart for studying using my repo from basics :</h>
 <body>
 Arithmetic Projects
 <br>

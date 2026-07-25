@@ -14,8 +14,27 @@ Explanation: Traversing the given input span 10 is greater than equal to 10 and 
 Constraints:
 1 ≤ arr.size() ≤ 105
 1 ≤ arr[i] ≤ 105*/
+
+import java.util.ArrayList;
+import java.util.Stack;
+
 public class Pro_12{
     public static void main(String[] args) {
     }
-    
+    public ArrayList<Integer> calculateSpan(int[] arr) {
+        ArrayList<Integer> list = new ArrayList<>();
+        Stack<Integer> st = new Stack<>();
+        for(int i = 0;i < arr.length;i++){
+            while(!st.isEmpty() && arr[i] >= arr[st.peek()]) st.pop();
+            if(st.isEmpty()){
+                list.add(i+1);
+                st.push(i);
+            }
+            else{
+                list.add(i-st.peek());
+                st.push(i);
+            }
+        }
+        return list;
+    }
 }

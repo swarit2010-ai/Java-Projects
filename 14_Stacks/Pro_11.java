@@ -34,7 +34,18 @@ No
 Explanation:
 Testcase1: The number of elements are even and they are pairwise consecutive so we print Yes.
 Testcase2: The number of elements are odd so we remove the top element and check for pairwise consecutive. It is not so we print No. */
+
+import java.util.Stack;
+
 public class Pro_11{
     public static void main(String[] args) {
+    }
+    public static boolean pairWiseConsecutive(Stack<Integer> st) {
+        if (st.size() % 2 == 1) st.pop();
+        while (!st.isEmpty()) {
+            int f = st.pop(),s = st.pop();
+            if (Math.abs(f - s) != 1) return false;
+        }
+        return true;
     }
 }

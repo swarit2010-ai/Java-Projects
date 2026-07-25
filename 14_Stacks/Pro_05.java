@@ -28,7 +28,24 @@ Constraints:
 
 1 <= s.length <= 105
 s consists of lowercase English letters.*/
+import java.util.Stack;
+
 public class Pro_05{
     public static void main(String[] args) {
+    }
+    public String removeDuplicates(String s) {
+        Stack<Character> st = new Stack<>();
+        for(int i = s.length()-1;i >= 0;i--){
+            if(st.isEmpty()) st.push(s.charAt(i));
+            else{
+                if(s.charAt(i) == st.peek()) st.pop();
+                else st.push(s.charAt(i));
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        while(!st.isEmpty()){
+            sb.append(st.pop());
+        }
+        return sb.toString();
     }
 }

@@ -15,7 +15,25 @@ Constraints:
 
 1 ≤ arr.size() ≤ 105
 1 ≤ arr[i] ≤ 105 */
+
+import java.util.Stack;
+
 public class Pro_10{
     public static void main(String[] args) {
+    }
+    public static Stack<Integer> push(int arr[]) {
+        
+        // code here
+        Stack<Integer> st = new Stack<>();
+        for(int i = 0;i < arr.length;i++){
+            st.push(arr[i]);
+        }
+        return st;
+    }
+
+    // Print elements of a stack and pop them.
+    public static void printAndPop(Stack<Integer> s) {
+        // code here
+        while(!s.isEmpty()) System.out.print(s.pop() + " ");
     }
 }

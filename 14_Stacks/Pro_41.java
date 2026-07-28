@@ -23,28 +23,7 @@ Constraints:
 mat[i][i] = 1
 
  */
-
-import java.util.Stack;
-
-public class Pro_14{
+public class Pro_41{
     public static void main(String[] args) {
-    }
-    public int celebrity(int arr[][]) {
-        // code here
-        int n = arr.length;
-        Stack<Integer> st = new Stack<>();
-        for(int k = 0;k < n;k++) st.push(k);
-        while(st.size() > 1){
-            int i = st.pop();
-            int j = st.pop();
-            if(arr[i][j] == 1 || arr[j][i] == 0) st.push(j);
-            else if(arr[j][i] == 1 || arr[i][j] == 0) st.push(i);
-        }
-        if(st.isEmpty()) return -1;
-        int a = st.pop();
-        for(int iter = 0;iter < arr.length;iter++){
-            if(a != iter && (arr[a][iter] == 1 || arr[iter][a] == 0)) {a = -1;break;}
-        }
-        return a;
     }
 }

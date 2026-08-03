@@ -42,8 +42,68 @@ All the calls to pop and peek are valid.
  
 
 Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer. */
+import java.util.Stack;
+class MyQueue {
+    Stack<Integer> st;
+    Stack<Integer> helper;
+    public MyQueue() {
+        st = new Stack<>();
+        helper = new Stack<>();
+    }
+    public void push(int x) {
+        st.push(x);
+    }
+    
+    public int pop() {
+        while(st.size() > 1) helper.push(st.pop());
+        int ele = st.pop();
+        while(!helper.isEmpty()) st.push(helper.pop());
+        return ele;
+    }
+    
+    public int peek() {
+        while(st.size() > 1) helper.push(st.pop());
+        int ele = st.peek();
+        while(!helper.isEmpty()) st.push(helper.pop());
+        return ele;
+    }
+    
+    public boolean empty() {
+        return st.isEmpty();
+    }
+}
+// class MyQueue {
+//     Stack<Integer> st;
+//     Stack<Integer> helper;
+//     public MyQueue() {
+//         st = new Stack<>();
+//         helper = new Stack<>();
+//     }
+//     public void push(int x) {
+//         while(!st.isEmpty()) helper.push(st.pop());
+//         st.push(x);
+//         while(!helper.isEmpty()) st.push(helper.pop());
+//     }
+    
+//     public int pop() {
+//         int ele = st.pop();
+//         return ele;
+//     }
+    
+//     public int peek() {
+//         return st.peek();
+//     }
+    
+//     public boolean empty() {
+//         return st.isEmpty();
+//     }
+// }
+
+
 public class Pro_07 {
     public static void main(String[] args) {
+        MyQueue q = new MyQueue();
+        q.push(10);
     }
     
 }

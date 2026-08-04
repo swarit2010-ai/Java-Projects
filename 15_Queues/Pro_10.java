@@ -32,8 +32,49 @@ Constraints:
 1 <= arr.size() <= 106
 -105 <= arr[i] <= 105
 1 <= k <= arr.size() */
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Pro_10 {
     public static void main(String[] args) {
     }
-    
+    @SuppressWarnings("unused")
+    static List<Integer> firstNegInt(int arr[], int k) {
+        // code here
+        // O(n.k) Time complexity:
+        // List<Integer> ans = new ArrayList<>();
+        // Queue<Integer> q = new LinkedList<>();
+        // int i;
+        // for(i = 0;i < k;i++) q.add(arr[i]);
+        // while(i <= arr.length){
+        //     int first = 0;
+        //     for(int j = 1;j <= k;j++){
+        //         if(q.peek() < 0 && first == 0) first = q.peek();
+        //         q.add(q.remove());
+        //     }
+        //     if(i < arr.length){
+        //         q.add(arr[i++]);
+        //         q.remove();
+        //     }
+        //     else i++;
+        //     ans.add(first);
+        // }
+        // return ans;
+        // O(N) Time complexity:
+        List<Integer> ans = new ArrayList<>();
+        Queue<Integer> q = new LinkedList<>();
+        int i;
+        for(i = 0;i < arr.length;i++){
+            if(arr[i] < 0) q.add(i);
+        }
+        for(i = 0;i < arr.length-k+1;i++){
+            while(!q.isEmpty() && q.peek() < i) q.remove();
+            if(q.isEmpty() || q.peek() > i+k-1) ans.add(0);
+            else ans.add(arr[q.peek()]);
+        }
+        return ans;
+    }
 }

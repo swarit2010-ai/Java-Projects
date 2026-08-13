@@ -16,7 +16,7 @@ Explanation: There are 6 nodes in the given binary tree, so its size is 6.
 Constraints:
 1 ≤ number of nodes ≤ 105
 1 ≤ node->data ≤ 105 */
-public class Pro_02 {
+public class Pro_02_Size_Of_BT {
     public static void main(String[] args) {
     }
     @SuppressWarnings("unused")

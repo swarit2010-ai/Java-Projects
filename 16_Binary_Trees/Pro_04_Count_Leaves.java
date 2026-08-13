@@ -25,8 +25,13 @@ Explanation: Three leaves are 20, 27 and 40.
 Constraints:
 1<= number of nodes <= 105
 1<= node->data <= 105*/
-public class Pro_04 {
+public class Pro_04_Count_Leaves {
     public static void main(String[] args) {
     }
-
+    @SuppressWarnings("unused")
+    int countLeaves(Node node) {
+        if(node == null) return 0;
+        if(node.left == null && node.right == null) return 1;
+        return countLeaves(node.left)+countLeaves(node.right);
+    }
 }

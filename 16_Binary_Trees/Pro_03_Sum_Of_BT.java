@@ -21,7 +21,7 @@ Explanation: The sum of all the nodes is 1 + 2 + 4 = 7.
 Constraints:
 1 ≤ number of nodes ≤ 104
 -105 ≤ Node data ≤ 105 */
-public class Pro_03 {
+public class Pro_03_Sum_Of_BT {
     public static void main(String[] args) {
     }
     @SuppressWarnings("unused")

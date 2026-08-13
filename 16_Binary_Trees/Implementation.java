@@ -8,11 +8,11 @@ class Node{
 }
 public class Implementation{
     public static void main(String[] args) {
-        //        10
-        //      /    \
-        //     20     30
-        //    /  \   /   \
-        //  40   50 60   70
+        //          1
+        //      /      \
+        //     2        3
+        //    /  \    /  \
+        //  4    5   6    7
         Node a = new Node(1);
         Node b = new Node(2);
         Node c = new Node(3);
@@ -32,6 +32,15 @@ public class Implementation{
         System.out.println(sum(a));
         System.out.println(max(a));
         System.out.println(level(a));
+        preorder(a);
+        System.out.println();
+        inorder(a);
+        System.out.println();
+        postorder(a);
+        System.out.println();
+        System.out.println(pro(a));
+        System.out.println(pro_non_zero(a));
+        System.out.println(min(a));
     }
     static void display(Node root){
         if(root == null) return;
@@ -52,16 +61,40 @@ public class Implementation{
         return Math.max(root.val,Math.max(max(root.left),max(root.right)));
     }
     static int pro(Node root){
-        return 0;
+        if(root == null) return 1;
+        return root.val*pro(root.left)*pro(root.right);
     }
     static int pro_non_zero(Node root){
-        return 0;
+        if(root == null) return 1;
+        if(root.val != 0)
+            return root.val*pro_non_zero(root.left)*pro_non_zero(root.right);
+        else
+            return pro_non_zero(root.left)*pro_non_zero(root.right);
     }
     static int min(Node root){
-        return 0;
+        if(root == null) return Integer.MAX_VALUE;
+        return Math.min(root.val,Math.min(min(root.left),min(root.right)));
     }
     static int level(Node root){
         if(root == null) return 0;
         return 1+Math.max(level(root.left),level(root.right));
+    }
+    static void preorder(Node root){
+        if(root == null) return;
+        System.out.print(root.val + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+    static void inorder(Node root){
+        if(root == null) return;
+        inorder(root.left);
+        System.out.print(root.val + " ");
+        inorder(root.right);
+    }
+    static void postorder(Node root){
+        if(root == null) return;
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.val + " ");
     }
 }

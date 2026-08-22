@@ -1,9 +1,20 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node{
     int val;
     Node left;
     Node right;
     Node(int val){
         this.val = val;
+    }
+}
+class Pair{
+    Node node;
+    int level;
+    Pair(Node node,int level){
+        this.node = node;
+        this.level = level;
     }
 }
 public class Implementation{
@@ -41,6 +52,9 @@ public class Implementation{
         System.out.println(pro(a));
         System.out.println(pro_non_zero(a));
         System.out.println(min(a));
+        levelorder(a);
+        System.out.println();
+        levelorder_pattern(a);
     }
     static void display(Node root){
         if(root == null) return;
@@ -96,5 +110,32 @@ public class Implementation{
         postorder(root.left);
         postorder(root.right);
         System.out.print(root.val + " ");
+    }
+    static void levelorder(Node root){
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node peek = q.remove();
+            System.out.print(peek.val + " ");
+            if(peek.left != null) q.add(peek.left);
+            if(peek.right != null) q.add(peek.right);
+        }
+    }
+    static void levelorder_pattern(Node root){
+        Queue<Pair> q = new LinkedList<>();
+        int currlevel = 0;
+        q.add(new Pair(root,0));
+        while(!q.isEmpty()){
+            Pair peek = q.remove();
+            Node node = peek.node;
+            int level = peek.level;
+            if(level > currlevel){
+                currlevel++;
+                System.out.println();
+            }
+            System.out.print(node.val + "  ");
+            if(node.left != null) q.add(new Pair(node.left,level+1));
+            if(node.right != null) q.add(new Pair(node.right,level+1));
+        }
     }
 }

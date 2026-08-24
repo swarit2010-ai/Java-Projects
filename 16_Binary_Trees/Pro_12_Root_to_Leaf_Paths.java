@@ -21,8 +21,32 @@ Explanation: All the possible paths from root node to leaf nodes are: 10 -> 20 -
 Constraints:
 1 ≤ number of nodes ≤ 104
 1 ≤ node->data ≤ 104 */
+
+import java.util.ArrayList;
+
 public class Pro_12_Root_to_Leaf_Paths {
     public static void main(String[] args) {
     }
-    
+    @SuppressWarnings("unused")
+    ArrayList<ArrayList<Integer>> paths(Node root) {
+        // code here
+        @SuppressWarnings("Convert2Diamond")
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+        path(root,ans,new ArrayList<>());
+        return ans;
+    }
+    void path(Node root,ArrayList<ArrayList<Integer>> ans,ArrayList<Integer> run){
+        if(root == null){
+            return;
+        }
+        run.add(root.val);
+        if(root.left == null && root.right == null){
+            ans.add(new ArrayList<>(run));
+        }
+        else {
+            path(root.left,ans,run);
+            path(root.right,ans,run);
+        }
+        run.remove(run.size()-1);
+    }
 }

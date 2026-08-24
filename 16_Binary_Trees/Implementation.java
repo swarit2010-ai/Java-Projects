@@ -55,6 +55,8 @@ public class Implementation{
         levelorder(a);
         System.out.println();
         levelorder_pattern(a);
+        System.out.println();
+        print_nth(a, 0, 2);
     }
     static void display(Node root){
         if(root == null) return;
@@ -137,5 +139,14 @@ public class Implementation{
             if(node.left != null) q.add(new Pair(node.left,level+1));
             if(node.right != null) q.add(new Pair(node.right,level+1));
         }
+    }
+    static void print_nth(Node root,int curr,int n){
+        if(root == null) return;
+        if(curr == n) {
+            System.out.print(root.val + " ");
+            return;
+        }
+        print_nth(root.left, curr+1, n);
+        print_nth(root.right, curr+1, n);
     }
 }

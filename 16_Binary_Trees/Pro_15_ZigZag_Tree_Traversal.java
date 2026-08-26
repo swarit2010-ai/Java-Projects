@@ -25,8 +25,47 @@ Final result: [7, 7, 9, 8, 8, 6, 9, 10]
 Constraints:
 
 1 ≤ no. of nodes in root, root.node->data ≤ 105*/
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class Pro_15_ZigZag_Tree_Traversal {
     public static void main(String[] args) {
     }
-    
+    @SuppressWarnings("unused")
+    ArrayList<Integer> zigZagTraversal(Node root) {
+        // code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        int c = 0;
+        Stack<Node> st = new Stack<>();
+        while(!q.isEmpty()){
+            c++;
+            if(c % 2 == 0){
+                while(!q.isEmpty()) st.push(q.remove());
+                while(!st.isEmpty()) q.add(st.pop());
+            }
+            int size = q.size();
+            for(int i = 1;i <= size;i++){
+                Node peek = q.remove();
+                ans.add(peek.val);
+                if(c % 2 == 1){
+                    if(peek.left != null) q.add(peek.left);
+                    if(peek.right != null) q.add(peek.right);
+                }
+                else{
+                    if(peek.right != null) q.add(peek.right);
+                    if(peek.left != null) q.add(peek.left);
+                }
+            }
+            if(c % 2 == 0){
+                while(!q.isEmpty()) st.push(q.remove());
+                while(!st.isEmpty()) q.add(st.pop());
+            }
+        }
+        return ans;
+    }
 }

@@ -27,8 +27,28 @@ Constraints:
 1 ≤ arr.size() ≤ 104
 1 ≤ arr[i] ≤ 109
  */
+
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Pro_14_Complete_Binary_Tree_Traversal_with_Array_Input {
     public static void main(String[] args) {
     }
-
+    @SuppressWarnings("unused")
+    ArrayList<ArrayList<Integer>> levelSort(int[] arr) {
+        // code here
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        int i = 0;
+        int p = 0;
+        while(i < arr.length){
+            ArrayList<Integer> run = new ArrayList<>();
+            for(int j = 1;i < arr.length && j <= (int)Math.pow(2,p);j++){
+                run.add(arr[i++]);
+            }
+            Collections.sort(run);
+            ans.add(new ArrayList<>(run));
+            p++;
+        }
+        return ans;
+    }
 }

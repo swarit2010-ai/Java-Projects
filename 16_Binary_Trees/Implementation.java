@@ -9,14 +9,6 @@ class Node{
         this.val = val;
     }
 }
-class Pair{
-    Node node;
-    int level;
-    Pair(Node node,int level){
-        this.node = node;
-        this.level = level;
-    }
-}
 public class Implementation{
     public static void main(String[] args) {
         //          1
@@ -42,6 +34,9 @@ public class Implementation{
         System.out.println(size(a));
         System.out.println(sum(a));
         System.out.println(max(a));
+        System.out.println(min(a));
+        System.out.println(pro(a));
+        System.out.println(pro_non_zero(a));
         System.out.println(level(a));
         preorder(a);
         System.out.println();
@@ -49,14 +44,11 @@ public class Implementation{
         System.out.println();
         postorder(a);
         System.out.println();
-        System.out.println(pro(a));
-        System.out.println(pro_non_zero(a));
-        System.out.println(min(a));
         levelorder(a);
         System.out.println();
         levelorder_pattern(a);
+        print_nth(a,3);
         System.out.println();
-        print_nth(a, 0, 2);
     }
     static void display(Node root){
         if(root == null) return;
@@ -76,20 +68,18 @@ public class Implementation{
         if(root == null) return Integer.MIN_VALUE;
         return Math.max(root.val,Math.max(max(root.left),max(root.right)));
     }
+    static int min(Node root){
+        if(root == null) return Integer.MAX_VALUE;
+        return Math.min(root.val,Math.min(min(root.left),min(root.right)));
+    }
     static int pro(Node root){
         if(root == null) return 1;
         return root.val*pro(root.left)*pro(root.right);
     }
     static int pro_non_zero(Node root){
         if(root == null) return 1;
-        if(root.val != 0)
-            return root.val*pro_non_zero(root.left)*pro_non_zero(root.right);
-        else
-            return pro_non_zero(root.left)*pro_non_zero(root.right);
-    }
-    static int min(Node root){
-        if(root == null) return Integer.MAX_VALUE;
-        return Math.min(root.val,Math.min(min(root.left),min(root.right)));
+        if(root.val != 0) return root.val*pro(root.left)*pro(root.right);
+        else return pro(root.left)*pro(root.right);
     }
     static int level(Node root){
         if(root == null) return 0;
@@ -124,29 +114,32 @@ public class Implementation{
         }
     }
     static void levelorder_pattern(Node root){
-        Queue<Pair> q = new LinkedList<>();
-        int currlevel = 0;
-        q.add(new Pair(root,0));
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
         while(!q.isEmpty()){
-            Pair peek = q.remove();
-            Node node = peek.node;
-            int level = peek.level;
-            if(level > currlevel){
-                currlevel++;
-                System.out.println();
+            int size = q.size();
+            for(int i = 1;i <= size;i++){
+                Node peek = q.remove();
+                System.out.print(peek.val + " ");
+                if(peek.left != null) q.add(peek.left);
+                if(peek.right != null) q.add(peek.right);
             }
-            System.out.print(node.val + "  ");
-            if(node.left != null) q.add(new Pair(node.left,level+1));
-            if(node.right != null) q.add(new Pair(node.right,level+1));
+            System.out.println();
         }
     }
-    static void print_nth(Node root,int curr,int n){
-        if(root == null) return;
-        if(curr == n) {
-            System.out.print(root.val + " ");
-            return;
+    static void print_nth(Node root,int n){
+        int curr = 1;
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int i = 1;i <= size;i++){
+                Node peek = q.remove();
+                if(curr == n) System.out.print(peek.val + " ");
+                if(peek.left != null) q.add(peek.left);
+                if(peek.right != null) q.add(peek.right);
+            }
+            curr++;
         }
-        print_nth(root.left, curr+1, n);
-        print_nth(root.right, curr+1, n);
     }
 }

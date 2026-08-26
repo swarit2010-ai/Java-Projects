@@ -32,6 +32,7 @@ Constraints:
 public class Pro_05_Count_Non_Leaves {
     public static void main(String[] args) {
     }
+    @SuppressWarnings("unused")
     int countNonLeafNodes(Node node) {
       // code here
       if(node == null || (node.left == null && node.right == null)) return 0;

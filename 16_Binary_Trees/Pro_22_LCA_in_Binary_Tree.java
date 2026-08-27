@@ -24,20 +24,28 @@ Constraints:
 public class Pro_22_LCA_in_Binary_Tree {
     public static void main(String[] args) {
     }
+    // Node lca(Node root, int n1, int n2) {
+    //     // code here
+    //     if(root == null) return null;
+    //     if(root.data == n1 || root.data == n2) return root;
+    //     boolean check1 = present(root.left,n1);
+    //     boolean check2 = present(root.right,n2);
+    //     if(check1 && !check2) return lca(root.left,n1,n2);
+    //     else if(!check1 && check2) return lca(root.right,n1,n2);
+    //     return root;
+    // }
+    // boolean present(Node root,int n){
+    //     if(root == null) return false;
+    //     if(root.data != n) return present(root.left,n)||present(root.right,n);
+    //     return true;
+    // }
     @SuppressWarnings("unused")
     Node lca(Node root, int n1, int n2) {
         // code here
         if(root == null) return null;
         if(root.val == n1 || root.val == n2) return root;
-        boolean check1 = present(root.left,n1);
-        boolean check2 = present(root.right,n2);
-        if(check1 && !check2) return lca(root.left,n1,n2);
-        else if(!check1 && check2) return lca(root.right,n1,n2);
+        if(lca(root.left,n1,n2) == null) return lca(root.right,n1,n2);
+        else if(lca(root.right,n1,n2) == null) return lca(root.left,n1,n2);
         return root;
-    }
-    boolean present(Node root,int n){
-        if(root == null) return false;
-        if(root.val != n) return present(root.left,n)||present(root.right,n);
-        return true;
     }
 }

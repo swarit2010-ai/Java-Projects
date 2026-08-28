@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 class Node{
     int val;
@@ -49,6 +48,9 @@ public class Implementation{
         levelorder_pattern(a);
         print_nth(a,3);
         System.out.println();
+        preorder_iterative(a);
+        inorder_iterative(a);
+        postorder_iterative(a);
     }
     static void display(Node root){
         if(root == null) return;
@@ -141,5 +143,54 @@ public class Implementation{
             }
             curr++;
         }
+    }
+    static void preorder_iterative(Node root){
+        Stack<Node> st = new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            Node temp = st.peek();
+            st.pop();
+            System.out.print(temp.val + " ");
+            if(temp.right != null) st.push(temp.right);
+            if(temp.left != null) st.push(temp.left);
+        }
+        System.out.println();
+    }
+    static void inorder_iterative(Node root){
+        Stack<Node> st = new Stack<>();
+        Node curr = root;
+        while(!st.isEmpty() || curr != null){
+            if(curr != null){
+                if(curr.left != null){
+                    st.push(curr);
+                    curr = curr.left;
+                }
+                else{
+                    System.out.print(curr.val + " ");
+                    curr = curr.right;
+                }
+            }
+            else{
+                Node top = st.pop();
+                System.out.print(top.val + " ");
+                curr = top.right;
+            }
+        }
+        System.out.println();
+    }
+    static void postorder_iterative(Node root){
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<Node> st = new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            Node temp = st.peek();
+            st.pop();
+            ans.add(temp.val);
+            if(temp.left != null) st.push(temp.left);
+            if(temp.right != null) st.push(temp.right);
+        }
+        Collections.reverse(ans);
+        for(int ele:ans) System.out.print(ele+" ");
+        System.out.println();
     }
 }

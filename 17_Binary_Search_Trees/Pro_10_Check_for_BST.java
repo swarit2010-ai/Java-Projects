@@ -10,43 +10,48 @@ Examples:
 Input: root = [2, 1, 3, N, N, N, 5]
 
 Output: true 
-Explanation: The left subtree of every node contains smaller data and right subtree of every node contains greater data. Hence, the tree is a BST.
+Explanation: The left subtree of every node contains smaller val and right subtree of every node contains greater val. Hence, the tree is a BST.
 Input: root = [2, N, 7, N, 6, N, 9] 
 
 
 Output: false 
-Explanation: Since the node to the right of node with data 7 has lesser value 6, hence it is not a valid BST.
+Explanation: Since the node to the right of node with val 7 has lesser value 6, hence it is not a valid BST.
 Input: root = [10, 5, 20, N, N, 9, 25]
 
 Output: false
-Explanation: The node with data 9 present in the right subtree has lesser key value than root node 10.
+Explanation: The node with val 9 present in the right subtree has lesser key value than root node 10.
 Constraints:
 
 1 ≤ size of binary tree ≤ 105
-1 ≤ node.data ≤ 109*/
-
-import java.util.ArrayList;
-
+1 ≤ node.val ≤ 109*/
+class Pair{
+    int min;
+    int max;
+    Pair(int max,int min){
+        this.min = min;
+        this.max = max;
+    }
+}
 public class Pro_10_Check_for_BST {
     public static void main(String[] args) {
     }
     @SuppressWarnings("unused")
-    boolean isBST(Node root) {
-        // code here
-        ArrayList<Integer> arr = new ArrayList<>();
-        helper(root,arr);
-        boolean check = true;
-        for(int i = 0;i < arr.size()-1;i++){
-            if(arr.get(i+1) <= arr.get(i)) check = false;
-        }
-        return check;
-    }
-    void helper(Node root,ArrayList<Integer> arr){
-        if(root == null) return;
-        helper(root.left,arr);
-        arr.add(root.val);
-        helper(root.right,arr);
-    }
+    // boolean isBST(Node root) {
+    //     // code here
+    //     ArrayList<Integer> arr = new ArrayList<>();
+    //     helper(root,arr);
+    //     boolean check = true;
+    //     for(int i = 0;i < arr.size()-1;i++){
+    //         if(arr.get(i+1) <= arr.get(i)) check = false;
+    //     }
+    //     return check;
+    // }
+    // void helper(Node root,ArrayList<Integer> arr){
+    //     if(root == null) return;
+    //     helper(root.left,arr);
+    //     arr.add(root.val);
+    //     helper(root.right,arr);
+    // }
     // public boolean isBST(Node root) {
     //     // code here
     //     if(root == null) return true;
@@ -57,12 +62,29 @@ public class Pro_10_Check_for_BST {
     // }
     // boolean find1(Node root,Node temp){
     //     if(temp == null) return true;
-    //     if(root.data <= temp.data) return false;
+    //     if(root.val <= temp.val) return false;
     //     return find1(root,temp.left)&&find1(root,temp.right);
     // }
     // boolean find2(Node root,Node temp){
     //     if(temp == null) return true;
-    //     if(root.data >= temp.data) return false;
+    //     if(root.val >= temp.val) return false;
     //     return find2(root,temp.left)&&find2(root,temp.right);
     // }
+    boolean isBST(Node root) {
+        // code here
+        boolean[] flag = {true};
+        Pair maxmin = maxmin(flag,root);
+        return flag[0];
+    }
+    Pair maxmin(boolean[] flag,Node root){
+        if(root == null) return new Pair(Integer.MIN_VALUE,Integer.MAX_VALUE);
+        Pair left = maxmin(flag,root.left);
+        Pair right = maxmin(flag,root.right);
+        if(left.max >= root.val) flag[0] = false;
+        if(right.min <= root.val) flag[0] = false;
+        int max = Math.max(root.val,Math.max(left.max,right.max));
+        int min = Math.min(root.val,Math.min(left.min,right.min));
+        Pair ans = new Pair(max,min);
+        return ans;
+    }
 }
